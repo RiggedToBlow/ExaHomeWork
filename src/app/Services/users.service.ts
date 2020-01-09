@@ -81,7 +81,11 @@ export class UsersService {
     this.usersInPage.next(arr);
   }
 
-  editUser(userToEdit, id) {
-    this.http.post("https://reqres.in/api/user/" + id, userToEdit);
+  editUser(userToEdit) {
+    this.http.put("https://reqres.in/api/users/1" , userToEdit).subscribe((res:any)=>{
+      if (res.updatedAt){
+        this.notifcate.open("User Updated Successfully at "+res.updatedAt)
+      }
+    },error=>this.notifcate.open("error in updating user"));
   }
 }

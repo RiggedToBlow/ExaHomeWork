@@ -9,11 +9,11 @@
   <span class="space-between-elements"></span>
 
   <mat-menu #appMenu="matMenu">
-    <div *ngIf="!user">
+    <div *ngIf="!logged">
       <a mat-menu-item color="accent" routerLink="/login">Login</a>
       <a mat-menu-item color="accent">Register</a>
     </div>
-    <div *ngIf="user">
+    <div *ngIf="logged">
       <a mat-menu-item color="accent" routerLink="/profile">Profile</a>
       <button mat-menu-item color="accent" (click)="logOut()">Logout</button>
     </div>
