@@ -1,0 +1,9 @@
+<mat-list >
+    <mat-list-item *ngFor="let user of users" >
+        <span class="sub-item-id">{{user.id}}</span>
+        <span class="sub-item">{{user.email}}</span>
+        <span class="sub-item">{{user.first_name}} {{user.last_name}}</span>
+        <a mat-button color="accent" class="sub-item-button">View</a>
+        <a mat-button color="accent" class="sub-item-button">Delete</a>
+    </mat-list-item>
+</mat-list>

@@ -1,0 +1,46 @@
+<mat-toolbar color="primary">
+  <a class="button" mat-button routerLink="">
+    <i class="material-icons">list</i>List All Users
+  </a>
+  <span class="space-between-elements"></span>
+  <a  routerLink="" mat-button id="website">
+    Website Name
+  </a>
+  <span class="space-between-elements"></span>
+
+  <mat-menu #appMenu="matMenu">
+    <div *ngIf="!user">
+      <a mat-menu-item color="accent" routerLink="/login">Login</a>
+      <a mat-menu-item color="accent">Register</a>
+    </div>
+    <div *ngIf="user">
+      <a mat-menu-item color="accent" routerLink="/profile">Profile</a>
+      <button mat-menu-item color="accent" (click)="logOut()">Logout</button>
+    </div>
+  </mat-menu>
+
+  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+    <i class="material-icons">
+      person
+    </i>
+  </button>
+
+  <!--a not so good way to show elements :) -->
+  <!-- <mat-expansion-panel color="warn">
+    <mat-expansion-panel-header>
+      <i class="material-icons">
+        person
+      </i>
+
+    </mat-expansion-panel-header>
+    <div *ngIf="!loggedIn">
+        <button mat-button color="accent">Login</button>
+        <button mat-button color="accent">Register</button>
+      
+    </div>
+    <div *ngIf="loggedIn">
+        <button mat-button color="accent">Profile</button>
+        <button mat-button color="accent">Logout</button>
+    </div>
+  </mat-expansion-panel> -->
+</mat-toolbar>

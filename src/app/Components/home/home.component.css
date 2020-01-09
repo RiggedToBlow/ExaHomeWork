@@ -1,0 +1,21 @@
+mat-list-item{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    text-align:center;
+}
+mat-list-item:nth-of-type(even){
+    background: grey;
+}
+.sub-item{
+    flex:3;
+}
+.sub-item-button{
+    flex:1;
+    padding:0;
+    margin:20px;
+    background:#673ab7;
+}
+.sub-item-id{
+    flex:1;
+}

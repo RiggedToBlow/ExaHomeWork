@@ -1,0 +1,9 @@
+mat-toolbar{
+    display:flex;
+}
+#website{
+    font-size:2rem;
+}
+.space-between-elements{
+    flex:5;
+}

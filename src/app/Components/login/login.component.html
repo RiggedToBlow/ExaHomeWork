@@ -1,0 +1,33 @@
+<div>
+  <h3>Login</h3>
+  <mat-form-field color="accent">
+    <input
+      matInput
+      type="email"
+      [formControl]="email"
+      placeholder="Email"
+      required
+    />
+  </mat-form-field>
+
+
+  <mat-form-field color="accent">
+    <input
+      matInput
+      type="password"
+      [formControl]="password"
+      placeholder="Password"
+      required
+    />
+  </mat-form-field>
+  
+  <button
+    type="submit"
+    color="primary"
+    mat-button
+    (click)="submitData()"
+    [disabled]="!email.valid || !password.valid"
+  >
+    Submit
+  </button>
+</div>

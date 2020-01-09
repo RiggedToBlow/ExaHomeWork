@@ -1,0 +1,18 @@
+div{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:100px;
+    margin:3% auto;
+
+}
+/* mat-form-control{
+    display:flex;
+    justify-content: center;
+    margin-top:100px;
+} */
+input{
+    flex:1;
+    flex-basis:300px;
+}
