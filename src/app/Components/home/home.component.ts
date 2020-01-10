@@ -16,4 +16,21 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.fetchService.usersInPage.subscribe((res:any)=>console.log(this.users=res.data))
   }
+  onDelete(user:any){
+    this.fetchService.deleteUser(user)
+  }
+  onView(user:any){
+    this.fetchService.getUserById(user.id).subscribe((res:any)=>{
+
+    })
+  }
+
+  onNext(){
+    this.fetchService.nextUsersPage()
+  }
+  
+  onBack(){
+    this.fetchService.backUsersPage()
+  }
+
 }

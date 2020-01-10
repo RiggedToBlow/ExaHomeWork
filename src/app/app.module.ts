@@ -6,7 +6,6 @@ import { HomeComponent } from "./Components/home/home.component";
 import { ProfileComponent } from "./Components/profile/profile.component";
 import { NavBarComponent } from "./Components/nav-bar/nav-bar.component";
 import { LoginComponent } from "./Components/login/login.component";
-import { UserItemComponent } from "./Components/user-item/user-item.component";
 import { HttpClientModule } from "@angular/common/http";
 import { UsersService } from "./Services/users.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -32,7 +31,6 @@ import { MatStepperModule } from "@angular/material/stepper";
     ProfileComponent,
     NavBarComponent,
     LoginComponent,
-    UserItemComponent,
     SignupComponent
   ],
   imports: [

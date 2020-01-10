@@ -5,7 +5,7 @@ mat-list-item{
     text-align:center;
 }
 mat-list-item:nth-of-type(even){
-    background: grey;
+    background: #ffd772;
 }
 .sub-item{
     flex:3;
@@ -18,4 +18,15 @@ mat-list-item:nth-of-type(even){
 }
 .sub-item-id{
     flex:1;
+}
+
+footer{
+    margin: 0 auto;
+    display:flex;
+}
+.footer-button{
+    flex:1;
+}
+.space-between-buttons{
+    flex:5;
 }

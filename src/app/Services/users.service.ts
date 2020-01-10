@@ -8,34 +8,31 @@ const loggedUserKey = "LoggedInUser";
 })
 export class UsersService {
   currentPage: number;
-  usersInPage: BehaviorSubject<any[]> = new BehaviorSubject([]);
+  usersInPage: BehaviorSubject<any> = new BehaviorSubject({});
   isUserLogged: BehaviorSubject<any> = new BehaviorSubject({});
 
   constructor(private http: HttpClient, public notifcate: MatSnackBar) {
     this.currentPage = 1;
     this.moveUsersPage(this.currentPage);
   }
-  
+
   backUsersPage() {
-    this.usersInPage.subscribe((res: any) => {
-      if (this.currentPage - 1 < 1)
-        this.notifcate.open("Sorry there's no pages left, that's all we know");
-      else this.moveUsersPage(--this.currentPage);
-    });
+    if (this.currentPage-1 < 1)
+      this.notifcate.open("Sorry there are no more users here, that's all we know")
+    else
+      this.moveUsersPage(--this.currentPage)
   }
   nextUsersPage() {
-    this.usersInPage.subscribe((res: any) => {
-      if (res.total_pages < this.currentPage + 1)
-        this.notifcate.open("Sorry there's no pages left, that's all we know");
-      else this.moveUsersPage(++this.currentPage);
-    });
+    let totalPages= this.usersInPage.getValue().total_pages
+    if (this.currentPage+1>totalPages)
+      this.notifcate.open("Sorry there are no more users here, that's all we know")
+    else this.moveUsersPage(++this.currentPage)
   }
   moveUsersPage(page: number) {
     this.http
       .get("https://reqres.in/api/users?page=" + page)
       .subscribe((res: []) => {
         this.usersInPage.next(res);
-        console.log(this.usersInPage);
       });
   }
 
@@ -60,7 +57,7 @@ export class UsersService {
   saveUser(user: any) {
     if (!localStorage.getItem(loggedUserKey)) {
       localStorage.setItem(loggedUserKey, JSON.stringify(user));
-      this.isUserLogged.next(user)
+      this.isUserLogged.next(user);
     }
   }
 
@@ -68,24 +65,29 @@ export class UsersService {
     localStorage.removeItem(loggedUserKey);
     this.isUserLogged.next(null);
     console.log(this.isUserLogged.getValue());
-    this.notifcate.open("You Logged Out Successfully", "Ok")
+    this.notifcate.open("You Logged Out Successfully", "Ok");
   }
 
   deleteUser(userToDelete) {
-    this.http.delete("https://reqres.in/api/users/" + userToDelete.id);
-    let arr = [
-      ...this.usersInPage
-        .getValue()
-        .filter((user: any) => user.id !== userToDelete.id)
+    this.http
+      .delete("https://reqres.in/api/users/" + userToDelete.id)
+      .subscribe(res => this.notifcate.open("User Deleted Successfully!"));
+
+    let users = { ...this.usersInPage.getValue() };
+    users.data = [
+      ...users.data.filter((user: any) => user.id !== userToDelete.id)
     ];
-    this.usersInPage.next(arr);
+    this.usersInPage.next(users);
   }
 
   editUser(userToEdit) {
-    this.http.put("https://reqres.in/api/users/1" , userToEdit).subscribe((res:any)=>{
-      if (res.updatedAt){
-        this.notifcate.open("User Updated Successfully at "+res.updatedAt)
-      }
-    },error=>this.notifcate.open("error in updating user"));
+    this.http.put("https://reqres.in/api/users/1", userToEdit).subscribe(
+      (res: any) => {
+        if (res.updatedAt) {
+          this.notifcate.open("User Updated Successfully at " + res.updatedAt);
+        }
+      },
+      error => this.notifcate.open("error in updating user")
+    );
   }
 }
