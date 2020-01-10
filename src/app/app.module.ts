@@ -24,6 +24,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { SignupComponent } from "./Components/signup/signup.component";
 import { MatStepperModule } from "@angular/material/stepper";
+import { UserComponent } from './Components/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { MatStepperModule } from "@angular/material/stepper";
     ProfileComponent,
     NavBarComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
