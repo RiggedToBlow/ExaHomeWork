@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.userService.loginUser(user).subscribe(
       (res: any) => {
         this.userService.saveUser(user);
-        console.log("Logged");
+        this.userService.notifcate.open("You Have Logged in successfully")
         this.router.navigate([""])
       },
       error => {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from './Services/users.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'Free-for-all Social, where you can delete your friends';
-  constructor(){
+  constructor(private userService: UsersService){
   }
   ngOnInit(){
-    
+    this.userService.isLogged()
   }
 }

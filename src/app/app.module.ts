@@ -21,9 +21,10 @@ import {
 } from "@angular/material/snack-bar";
 
 import { ReactiveFormsModule } from "@angular/forms";
-import {  MatFormFieldModule } from "@angular/material/form-field";
-import {MatInputModule} from '@angular/material/input';
-import { SignupComponent } from './Components/signup/signup.component'
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { SignupComponent } from "./Components/signup/signup.component";
+import { MatStepperModule } from "@angular/material/stepper";
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { SignupComponent } from './Components/signup/signup.component'
     MatSnackBarModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatStepperModule
   ],
   providers: [
     UsersService,

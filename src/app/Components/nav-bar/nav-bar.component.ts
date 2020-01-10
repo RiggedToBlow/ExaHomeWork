@@ -13,7 +13,8 @@ export class NavBarComponent implements OnInit {
   logged: boolean;
   ngOnInit() {
     this.userService.isUserLogged.subscribe(res => {
-      if (res!==null)
+      console.log(res)
+      if (res!==null && res!==undefined)
         this.logged=true
       else
         this.logged=false

@@ -11,7 +11,7 @@
   <mat-menu #appMenu="matMenu">
     <div *ngIf="!logged">
       <a mat-menu-item color="accent" routerLink="/login">Login</a>
-      <a mat-menu-item color="accent">Register</a>
+      <a mat-menu-item color="accent" routerLink="/signup">Register</a>
     </div>
     <div *ngIf="logged">
       <a mat-menu-item color="accent" routerLink="/profile">Profile</a>

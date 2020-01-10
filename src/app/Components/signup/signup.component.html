@@ -1,1 +1,54 @@
-<p>signup works!</p>
+<div>
+  <h3>Signup</h3>
+  <mat-vertical-stepper linear>
+    <mat-step label="First Enter your email">
+      <mat-form-field color="accent">
+          <mat-hint *ngIf="!email.valid" color="warn">Please Enter a valid Email</mat-hint>
+        <input
+          matInput
+          type="email"
+          [formControl]="email"
+          placeholder="Email"
+          required
+        />
+      </mat-form-field>
+    </mat-step>
+    <mat-step label="Enter your password">
+      <mat-form-field color="accent">
+        <mat-hint *ngIf="!password.valid" color="warn">Please Enter a password of length 8</mat-hint>
+
+        <input
+          matInput
+          type="password"
+          [formControl]="password"
+          placeholder="Password"
+          required
+        />
+      </mat-form-field>
+    </mat-step>
+    <mat-step label="Confirm your password">
+      <mat-form-field color="accent">
+        <mat-hint *ngIf="password.value!=confirmPassword.value" color="warn">Password doesn't match</mat-hint>
+        <input
+          matInput
+          type="password"
+          [formControl]="confirmPassword"
+          placeholder="Confirm Password"
+          required
+        />
+      </mat-form-field>
+    </mat-step>
+    <mat-step label="Done!">
+      <button
+        type="submit"
+        color="primary"
+        mat-button
+        (click)="submitData()"
+        [disabled]="!email.valid ||
+          !password.valid ||
+          password.value != confirmPassword.value">
+        Submit
+      </button>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>
