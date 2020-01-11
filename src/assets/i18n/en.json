@@ -11,7 +11,9 @@
     },
     "home":{
         "nextButton":"Next",
-        "backButton":"Back"
+        "backButton":"Back",
+        "view":"View",
+        "delete":"Delete"
     },
     "forms":{
         "login":"Login",
@@ -25,6 +27,18 @@
         "passSecond":"Enter you password",
         "passConfirm":"Confirm Your Password",
         "done":"Done!"
-    }
-    
+    },
+    "lang":"English",
+    "noMoreUsers":"Sorry there are no more users here, that's all we know",
+    "logOutMessage":"You Logged Out Successfully",
+    "logInMessage":"You have logged in successfully!",
+    "userDelete":"User Deleted Successfully!",
+    "userUpdate":"User Updated Successfully at ",
+    "errorUpdate":"error in updating user",
+    "errorRegister":"Error in Registering User",
+    "loginError":"Error: email or password is incorrect",
+    "userRegister":"User Registerd Successfully and your id is ",
+    "edit":"Edit Email And Password",
+    "undo":"I'm not Sure" 
+
 }

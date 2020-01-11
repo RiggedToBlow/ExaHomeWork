@@ -10,7 +10,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class AppComponent implements OnInit {
   title = 'Free-for-all Social, where you can delete your friends';
   constructor(private userService: UsersService, private translate: TranslateService){
-    translate.setDefaultLang('ar')
+    translate.setDefaultLang('en')
   }
   ngOnInit(){
     this.userService.isLogged()

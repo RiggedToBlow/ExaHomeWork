@@ -6,7 +6,7 @@
         matInput
         type="email"
         [formControl]="email"
-        placeholder="Email"
+        placeholder="{{'forms.email'|translate}}"
         required
       />
     </mat-form-field>
@@ -16,7 +16,7 @@
         matInput
         type="password"
         [formControl]="password"
-        placeholder="Password"
+        placeholder="{{'forms.password'|translate}}"
         required
       />
     </mat-form-field>
@@ -27,7 +27,7 @@
       (click)="submitData()"
       [disabled]="!email.valid || !password.valid || !editable"
     >
-      Submit
+      {{'forms.submit'|translate}}
     </button>
 
   </div>

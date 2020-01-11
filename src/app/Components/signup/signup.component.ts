@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import { UsersService } from "src/app/Services/users.service";
 import { Router } from "@angular/router";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-signup",
@@ -21,7 +22,11 @@ export class SignupComponent implements OnInit {
     Validators.minLength(8)
   ]);
 
-  constructor(private userService: UsersService, private router: Router) {}
+  constructor(
+    private userService: UsersService,
+    private router: Router,
+    private translate: TranslateService
+  ) {}
 
   ngOnInit() {}
 
@@ -33,11 +38,11 @@ export class SignupComponent implements OnInit {
 
     this.userService.registerUser(user).subscribe((res: any) => {
       if (res.token) {
-        this.userService.notifcate.open(
-          "User Registerd Successfully and your id is " + res.id
-        );
-        this.router.navigate([""])
-      } else this.userService.notifcate.open("Error in Registering User");
+        this.translate
+          .get("userRegister")
+          .subscribe(s => this.userService.notifcate.open("s" + res.id));
+        this.router.navigate([""]);
+      } else this.translate.get("errorRegister").subscribe(s=>this.userService.notifcate.open(s))
     });
   }
 }

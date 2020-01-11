@@ -1,14 +1,32 @@
-<mat-list >
-    <mat-list-item *ngFor="let user of users" >
-        <span class="sub-item-id">{{user.id}}</span>
-        <span class="sub-item">{{user.first_name}} {{user.last_name}}</span>
-        <span class="sub-item">{{user.email}}</span>
-        <button mat-button color="accent" class="sub-item-button" (click)="onView(user)">View</button>
-        <button mat-button color="accent" class="sub-item-button" (click)="onDelete(user)">Delete</button>
-    </mat-list-item>
+<mat-list>
+  <mat-list-item *ngFor="let user of users">
+    <span class="sub-item-id">{{ user.id }}</span>
+    <span class="sub-item">{{ user.first_name }} {{ user.last_name }}</span>
+    <span class="sub-item">{{ user.email }}</span>
+    <button
+      mat-button
+      color="accent"
+      class="sub-item-button"
+      (click)="onView(user)"
+    >
+      {{ "home.view" | translate }}
+    </button>
+    <button
+      mat-button
+      color="accent"
+      class="sub-item-button"
+      (click)="onDelete(user)"
+    >
+      {{ "home.delete" | translate }}
+    </button>
+  </mat-list-item>
 </mat-list>
 <footer>
-    <button mat-button (click)="onBack()" class="footer-button">{{'home.backButton'|translate}}</button>
-    <span class="space-between-buttons"></span>
-    <button mat-button (click)="onNext()" class="footer-button">{{'home.nextButton'|translate}}</button>
+  <button mat-button (click)="onBack()" class="footer-button">
+    {{ "home.backButton" | translate }}
+  </button>
+  <span class="space-between-buttons"></span>
+  <button mat-button (click)="onNext()" class="footer-button">
+    {{ "home.nextButton" | translate }}
+  </button>
 </footer>
