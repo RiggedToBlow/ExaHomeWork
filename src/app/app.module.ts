@@ -6,7 +6,7 @@ import { HomeComponent } from "./Components/home/home.component";
 import { ProfileComponent } from "./Components/profile/profile.component";
 import { NavBarComponent } from "./Components/nav-bar/nav-bar.component";
 import { LoginComponent } from "./Components/login/login.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { UsersService } from "./Services/users.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -25,6 +25,8 @@ import { MatInputModule } from "@angular/material/input";
 import { SignupComponent } from "./Components/signup/signup.component";
 import { MatStepperModule } from "@angular/material/stepper";
 import { UserComponent } from './Components/user/user.component';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +51,14 @@ import { UserComponent } from './Components/user/user.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatStepperModule
+    MatStepperModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ],
   providers: [
     UsersService,
@@ -58,3 +67,7 @@ import { UserComponent } from './Components/user/user.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}

@@ -1,0 +1,30 @@
+{
+    "nav":{
+        "title":"Social Site",
+        "listUsers":"List All Users",
+        "buttons":{
+            "login":"Login",
+            "register":"Register",
+            "logout":"Logout",
+            "profile":"Profile"
+        }
+    },
+    "home":{
+        "nextButton":"Next",
+        "backButton":"Back"
+    },
+    "forms":{
+        "login":"Login",
+        "email":"Email",
+        "password":"Password",
+        "submit":"Submit",
+        "mailError":"Please Enter a valid Email",
+        "passError":"Please Enter a password of length 8",
+        "passConfirmError":"Password doesn't match",
+        "emailFirst":"First Enter your Email",
+        "passSecond":"Enter you password",
+        "passConfirm":"Confirm Your Password",
+        "done":"Done!"
+    }
+    
+}

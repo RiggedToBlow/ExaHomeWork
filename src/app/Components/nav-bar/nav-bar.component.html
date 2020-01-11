@@ -1,21 +1,29 @@
 <mat-toolbar color="primary">
   <a class="button" mat-button routerLink="">
-    <i class="material-icons">list</i>List All Users
+    <i class="material-icons">list</i>{{ "nav.listUsers"|translate }}
   </a>
   <span class="space-between-elements"></span>
-  <a  routerLink="" mat-button id="website">
-    Website Name
+  <a routerLink="" mat-button id="website">
+    {{ "nav.title" | translate }}
   </a>
   <span class="space-between-elements"></span>
 
   <mat-menu #appMenu="matMenu">
     <div *ngIf="!logged">
-      <a mat-menu-item color="accent" routerLink="/login">Login</a>
-      <a mat-menu-item color="accent" routerLink="/signup">Register</a>
+      <a mat-menu-item color="accent" routerLink="/login">{{
+        "nav.buttons.login"|translate
+      }}</a>
+      <a mat-menu-item color="accent" routerLink="/signup">{{
+        "nav.buttons.register"|translate
+      }}</a>
     </div>
     <div *ngIf="logged">
-      <a mat-menu-item color="accent" routerLink="/profile">Profile</a>
-      <button mat-menu-item color="accent" (click)="logOut()">Logout</button>
+      <a mat-menu-item color="accent" routerLink="/profile">{{
+        "nav.buttons.profile"|translate
+      }}</a>
+      <button mat-menu-item color="accent" (click)="logOut()">
+        {{ "nav.buttons.logout"|translate }}
+      </button>
     </div>
   </mat-menu>
 
@@ -24,9 +32,10 @@
       person
     </i>
   </button>
+</mat-toolbar>
 
-  <!--a not so good way to show elements :) -->
-  <!-- <mat-expansion-panel color="warn">
+<!--a not so good way to show elements :) -->
+<!-- <mat-expansion-panel color="warn">
     <mat-expansion-panel-header>
       <i class="material-icons">
         person
@@ -43,4 +52,3 @@
         <button mat-button color="accent">Logout</button>
     </div>
   </mat-expansion-panel> -->
-</mat-toolbar>

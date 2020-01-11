@@ -1,11 +1,11 @@
 <div>
-  <h3>Login</h3>
+  <h3>{{'forms.login'|translate}}</h3>
   <mat-form-field color="accent">
     <input
       matInput
       type="email"
       [formControl]="email"
-      placeholder="Email"
+      placeholder="{{'forms.email'|translate}}"
       required
     />
   </mat-form-field>
@@ -16,7 +16,7 @@
       matInput
       type="password"
       [formControl]="password"
-      placeholder="Password"
+      placeholder="{{'forms.password'|translate}}"
       required
     />
   </mat-form-field>
@@ -28,6 +28,6 @@
     (click)="submitData()"
     [disabled]="!email.valid || !password.valid"
   >
-    Submit
+    {{'forms.submit'|translate}}
   </button>
 </div>
